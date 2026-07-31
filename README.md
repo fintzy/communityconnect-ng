@@ -2,10 +2,10 @@
   <img src="docs/images/banner.webp" alt="CommunityConnect NG Banner" width="100%">
 </p>
 
-<h1 align="center">CommunityConnect NG 🇳🇬</h1>
+<h1 align="center">CommunityConnect NG</h1>
 
 <p align="center">
-A modern full-stack civic engagement and community issue reporting platform that empowers Nigerian citizens to report local issues, collaborate with government authorities, and promote transparent community development.
+A modern full-stack civic engagement platform that empowers Nigerian citizens to report local issues, engage with their communities, and enable transparent communication between residents and community administrators.
 </p>
 
 <p align="center">
@@ -16,61 +16,54 @@ A modern full-stack civic engagement and community issue reporting platform that
 ![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 </p>
 
 ---
 
-# 📖 Overview
+# 📖 OVERVIEW
 
-CommunityConnect NG is a civic technology platform designed to bridge the communication gap between citizens and local government authorities.
+CommunityConnect NG is a full-stack civic technology platform built to bridge the communication gap between citizens, community leaders, and government authorities.
 
-Residents can report community issues such as:
-
-- 🛣 Road damage
-- 💡 Power outages
-- 💧 Water supply failures
-- 🗑 Waste management
-- 🏥 Healthcare concerns
-- 🎓 Education issues
-- 🚨 Security incidents
-
-while Administrators and Super Administrators can monitor reports, manage users, analyze trends, and oversee community engagement through an interactive dashboard.
+Residents can easily report issues affecting their communities, while administrators monitor reports, manage users, analyze trends, and coordinate community engagement from a centralized dashboard.
 
 ---
 
 # ✨ Features
 
-## 👥 Resident Portal
+## 👥 Citizen Portal
 
 - Secure Authentication
 - Community Issue Reporting
-- Report Tracking
+- Issue Tracking
 - Comment System
-- Upvoting
-- Notification Center
+- Upvote Reports
+- Notifications
 - Personal Dashboard
+- Profile Management
 
 ---
 
-## 🛡 Admin Dashboard
+## 🛡 Administrator Portal
 
 - Report Moderation
+- Report Approval
 - Status Management
-- Resolution Workflow
+- User Management
 - Community Analytics
 - User Management
 - Notification Management
 
 ---
 
-## 👑 Super Admin
+## 👑 Super Administrator
 
-- System-wide Analytics
+- Platform-wide Analytics
 - Role Management
-- Platform Monitoring
-- Administrative Controls
+- Community Management
+- System Monitoring
 - Developer Console
 
 ---
@@ -92,10 +85,9 @@ while Administrators and Super Administrators can monitor reports, manage users,
 
 - Node.js
 - Express.js
-- REST API Architecture
-- Middleware
-- Controllers
-- Services
+- REST API
+- JWT Authentication
+- Prisma ORM
 
 ---
 
@@ -129,11 +121,11 @@ communityconnect-ng
 │
 ├── public/
 │
-├── prisma/
-│   ├── migrations/
-│   └── schema.prisma
-│
 ├── server/
+│   ├── prisma/
+│   │   ├── migrations/
+│   │   └── schema.prisma
+│   │
 │   ├── src/
 │   │   ├── config/
 │   │   ├── controllers/
@@ -144,30 +136,33 @@ communityconnect-ng
 │   │   ├── app.ts
 │   │   └── server.ts
 │   │
-│   └── package.json
+│   ├── package.json
+│   └── .env
 │
 ├── src/
 │   ├── assets/
 │   ├── components/
+│   ├── hooks/
 │   ├── layouts/
 │   ├── pages/
 │   ├── services/
-│   ├── hooks/
+│   ├── store/
+│   ├── styles/
 │   ├── types/
-│   ├── utils/
-│   └── assets/
+│   └── utils/
 │
 ├── package.json
 ├── tsconfig.json
 ├── vite.config.ts
+├── tsconfig.json
 └── README.md
 ```
 
 ---
 
-# 🚀 Getting Started
+# To Get Started
 
-## Clone the repository
+## Clone Repository
 
 ```bash
 git clone https://github.com/fintzy/communityconnect-ng.git
@@ -178,7 +173,7 @@ cd communityconnect-ng
 
 ---
 
-## Install Frontend Dependencies
+## Install Frontend
 
 ```bash
 npm install
@@ -186,117 +181,140 @@ npm install
 
 ---
 
-## Install Backend Dependencies
+## Install Backend
 
 ```bash
 cd server
+
 npm install
 ```
 
 ---
 
-## Configure Environment Variables
+# ⚙ Environment Variables
 
-Frontend
+### Frontend (.env)
 
 ```env
-VITE_API_URL=http://localhost:3000
+VITE_API_URL=http://localhost:5000
 ```
 
-Backend
+### Backend (server/.env)
 
 ```env
-DATABASE_URL="postgresql://username:password@localhost:5432/communityconnect"
-JWT_SECRET=your-secret-key
+DATABASE_URL=your_postgresql_connection_string
+
+JWT_SECRET=your_secret_key
+
 PORT=5000
 ```
 
 ---
 
-## Run Prisma
+# 🗄 Prisma
+
+Generate the Prisma Client
 
 ```bash
-npx prisma generate 
+cd server
 
+npx prisma generate
+```
+
+Run Migrations
+
+```bash
 npx prisma migrate dev
 ```
 
 ---
 
-## Start Backend
+# ▶ Running the Backend
 
 ```bash
 cd server
 
 npm run dev
+```
 
-===================================
- CommunityConnect NG API
- Running on http://localhost:5000
-===================================
+Server
+
+```
+http://localhost:5000
 ```
 
 ---
 
-## Start Frontend
+# ▶ Running the Frontend
 
 ```bash
 npm run dev
+```
+
+Application
+
+```
+http://localhost:3000
 ```
 
 ---
 
 # 📸 Screenshots
 
-| HOME |
-|------------------|
-<p align="center">
-  <img src="docs/images/home.png" alt="Home" width="100%">
-</p>
+## Home Page
 
-| DASHBOARD |
-|------------------|
 <p align="center">
-  <img src="docs/images/db.png" alt="Dashboard" width="100%">
-</p>
-
-| ADMIN DASHBOARD & ANALYTICS |
-|-----------------------------|
-| <p align="center">
-  <img src="docs/images/admindb.png" alt="Admin Dashboard & Analytics" width="100%">
+<img src="docs/images/home.png" width="100%">
 </p>
 
 ---
 
-# 📊 Current Status
+## Resident Dashboard
 
-## Completed
+<p align="center">
+<img src="docs/images/db.png" width="100%">
+</p>
 
-- Authentication UI
+---
+
+## Admin Analytics Dashboard
+
+<p align="center">
+<img src="docs/images/admindb.png" width="100%">
+</p>
+
+---
+
+# 📊 Project Status
+
+## ✅ Completed
+
+- Responsive User Interface
 - Resident Dashboard
-- Admin Dashboard
+- Administrator Dashboard
 - Super Admin Dashboard
+- Authentication Flow
 - Notifications
+- Report Management
 - Comment System
 - Analytics Dashboard
-- Developer Console
-- Prisma Database Configuration
-- Express Backend Structure
-- PostgreSQL Configuration
+- Express Backend
+- PostgreSQL Integration
+- Prisma ORM Configuration
 
 ---
 
-## In Progress
+## 🚧 In Progress
 
-- Backend API Integration
-- Production Authentication
+- API Integration
 - File Uploads
 - Email Notifications
-- Real-time Updates
+- Live Updates
+- Production Deployment
 
 ---
 
-# 🌍 Future Improvements
+# 🌍 Roadmap
 
 - Mobile Application
 - Push Notifications
@@ -313,12 +331,12 @@ npm run dev
 
 Contributions are welcome.
 
-1. Fork the repository
+1. Fork this repository
 
-2. Create a feature branch
+2. Create your feature branch
 
 ```bash
-git checkout -b feature/my-feature
+git checkout -b feature/new-feature
 ```
 
 3. Commit your changes
@@ -327,13 +345,13 @@ git checkout -b feature/my-feature
 git commit -m "Added new feature"
 ```
 
-4. Push
+4. Push your branch
 
 ```bash
-git push origin feature/my-feature
+git push origin feature/new-feature
 ```
 
-5. Open a Pull Request.
+5. Open a Pull Request
 
 ---
 
@@ -343,13 +361,19 @@ This project is licensed under the MIT License.
 
 ---
 
-# 👨‍💻 Author
+# 👨‍💻 Developer
 
-**Okutu Anthony**
+**Okutu Ikechukwuka Anthony**
 
 IT Support • Virtual Assistant • Full Stack Developer
 
 Built as part of the **3MTT Nigeria Software Development Programme**.
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
 
 ---
 
