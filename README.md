@@ -1,103 +1,81 @@
-# CommunityConnect NG 🇳🇬
+<p align="center">
+  <img src="docs/images/banner.webp" alt="CommunityConnect NG Banner" width="100%">
+</p>
 
-> A modern community issue reporting and civic engagement platform that empowers Nigerian residents to report local problems, collaborate with their communities, and monitor government responses.
+<h1 align="center">CommunityConnect NG 🇳🇬</h1>
 
-![CommunityConnect NG](./public/logo.png)
+<p align="center">
+A modern full-stack civic engagement and community issue reporting platform that empowers Nigerian citizens to report local issues, collaborate with government authorities, and promote transparent community development.
+</p>
+
+<p align="center">
+
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript)
+![Node.js](https://img.shields.io/badge/Node.js-Express-339933?logo=node.js)
+![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?logo=prisma)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-336791?logo=postgresql)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-4-06B6D4?logo=tailwindcss)
+![License](https://img.shields.io/badge/License-MIT-green)
+
+</p>
 
 ---
 
-## 📖 Project Overview
+# 📖 Overview
 
-CommunityConnect NG is a full-stack civic engagement platform designed to bridge the communication gap between citizens and local government authorities.
+CommunityConnect NG is a civic technology platform designed to bridge the communication gap between citizens and local government authorities.
 
-The platform enables residents to report issues such as:
+Residents can report community issues such as:
 
-- 🛣 Road damages
-- 💧 Water supply issues
-- ⚡ Power outages
-- 🗑 Sanitation concerns
-- 🏥 Health-related emergencies
-- 🏫 Education infrastructure issues
-- 🚓 Security incidents
-- 📢 Community announcements
+- 🛣 Road damage
+- 💡 Power outages
+- 💧 Water supply failures
+- 🗑 Waste management
+- 🏥 Healthcare concerns
+- 🎓 Education issues
+- 🚨 Security incidents
 
-Residents can submit reports, track progress, receive notifications, comment on issues, and upvote existing reports to increase their visibility.
-
-Administrators can review reports, update statuses, publish announcements, and manage community activities through a dedicated dashboard.
+while Administrators and Super Administrators can monitor reports, manage users, analyze trends, and oversee community engagement through an interactive dashboard.
 
 ---
 
 # ✨ Features
 
-## 👤 Authentication
+## 👥 Resident Portal
 
-- User Registration
-- Secure Login
-- Role-Based Authentication
-- Resident Accounts
-- Administrator Accounts
-
----
-
-## 📋 Report Management
-
-- Create Reports
-- Edit Reports
-- View Reports
-- Report Categories
-- Report Status Tracking
-- Upvote Reports
-- Comment on Reports
+- Secure Authentication
+- Community Issue Reporting
+- Report Tracking
+- Comment System
+- Upvoting
+- Notification Center
+- Personal Dashboard
 
 ---
 
-## 📢 Community Features
+## 🛡 Admin Dashboard
 
-- Community Announcements
-- Notifications
-- Community Discussions
-- Ward-based Reporting
-- LGA-based Reporting
-
----
-
-## 👨‍💼 Admin Dashboard
-
-Administrators can:
-
-- Review reports
-- Change report status
-- Publish announcements
-- Monitor community activity
-- View audit logs
-- Manage users
+- Report Moderation
+- Status Management
+- Resolution Workflow
+- Community Analytics
+- User Management
+- Notification Management
 
 ---
 
-## 🔐 Security
+## 👑 Super Admin
 
-- JWT Authentication (Simulated)
-- Role-based Authorization
-- Audit Logging
-- Row Level Security Design
-- Protected Routes
-
----
-
-## 🧑‍💻 Developer Console
-
-Includes:
-
-- Database Schema
-- Data Browser
-- JWT Viewer
-- Audit Logs
-- API Documentation
-- Test Accounts
+- System-wide Analytics
+- Role Management
+- Platform Monitoring
+- Administrative Controls
+- Developer Console
 
 ---
 
-# 🛠 Tech Stack
+# 🏗 Technology Stack
 
 ## Frontend
 
@@ -106,15 +84,26 @@ Includes:
 - Vite
 - Tailwind CSS
 - Framer Motion
-- React Router DOM
-- Lucide React Icons
+- Lucide React
 
 ---
 
-## State Management
+## Backend
 
-- React Hooks
-- Local Store Service
+- Node.js
+- Express.js
+- REST API Architecture
+- Middleware
+- Controllers
+- Services
+
+---
+
+## Database
+
+- PostgreSQL
+- Prisma ORM
+- Prisma Migrations
 
 ---
 
@@ -124,26 +113,49 @@ Includes:
 - TypeScript
 - Vite
 - npm
+- Git
+- GitHub
+- VS Code
 
 ---
 
 # 📂 Project Structure
 
-```
-communityconnect-ng/
+```text
+communityconnect-ng
+│
+├── docs/
+│   └── images/
 │
 ├── public/
+│
+├── prisma/
+│   ├── migrations/
+│   └── schema.prisma
+│
+├── server/
+│   ├── src/
+│   │   ├── config/
+│   │   ├── controllers/
+│   │   ├── middleware/
+│   │   ├── routes/
+│   │   ├── services/
+│   │   ├── utils/
+│   │   ├── app.ts
+│   │   └── server.ts
+│   │
+│   └── package.json
 │
 ├── src/
 │   ├── assets/
 │   ├── components/
+│   ├── layouts/
 │   ├── pages/
 │   ├── services/
 │   ├── hooks/
 │   ├── types/
 │   ├── utils/
-│   ├── App.tsx
-│   └── main.tsx
+│   └── assets/
 │
 ├── package.json
 ├── tsconfig.json
@@ -153,264 +165,147 @@ communityconnect-ng/
 
 ---
 
-# 🚀 Installation
+# 🚀 Getting Started
 
-## Clone Repository
+## Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/communityconnect-ng.git
-```
-
-Move into project folder
+git clone https://github.com/fintzy/communityconnect-ng.git
 
 ```bash
 cd communityconnect-ng
 ```
 
-Install dependencies
+---
+
+## Install Frontend Dependencies
 
 ```bash
 npm install
 ```
 
-Start development server
+---
+
+## Install Backend Dependencies
+
+```bash
+cd server
+npm install
+```
+
+---
+
+## Configure Environment Variables
+
+Frontend
+
+```env
+VITE_API_URL=http://localhost:3000
+```
+
+Backend
+
+```env
+DATABASE_URL="postgresql://username:password@localhost:5432/communityconnect"
+JWT_SECRET=your-secret-key
+PORT=5000
+```
+
+---
+
+## Run Prisma
+
+```bash
+npx prisma generate 
+
+npx prisma migrate dev
+```
+
+---
+
+## Start Backend
+
+```bash
+cd server
+
+npm run dev
+
+===================================
+ CommunityConnect NG API
+ Running on http://localhost:5000
+===================================
+```
+
+---
+
+## Start Frontend
 
 ```bash
 npm run dev
 ```
 
-Open:
-
-```
-http://localhost:3000
-```
-
----
-
-# 🏗 Build for Production
-
-```bash
-npm run build
-```
-
-Preview Production Build
-
-```bash
-npm run preview
-```
-
----
-
-# 🧹 Code Quality
-
-Run ESLint
-
-```bash
-npm run lint
-```
-
-Run TypeScript checks
-
-```bash
-npm run typecheck
-```
-
----
-
-# 🔑 Demo Accounts
-
-## Administrator
-
-Email
-
-```
-admin@communityconnect.ng
-```
-
-Password
-
-```
-password
-```
-
----
-
-## Resident
-
-Email
-
-```
-chioma@example.com
-```
-
-Password
-
-```
-password
-```
-
----
-
-## Resident
-
-Email
-
-```
-emeka@example.com
-```
-
-Password
-
-```
-password
-```
-
----
-
-# 📚 API Overview
-
-Authentication
-
-```
-POST /api/auth/login
-POST /api/auth/register
-```
-
-Reports
-
-```
-GET /api/reports
-POST /api/reports
-PATCH /api/reports/:id/status
-POST /api/reports/:id/upvote
-```
-
-Comments
-
-```
-GET /api/reports/:id/comments
-POST /api/reports/:id/comments
-```
-
----
-
-# 🗄 Database Schema
-
-Core Tables
-
-- users
-- reports
-- comments
-- announcements
-- notifications
-- audit_logs
-
----
-
-# 🔐 Row Level Security
-
-The project demonstrates Row-Level Security (RLS) concepts including:
-
-- User-specific profile access
-- Report ownership
-- Administrator privileges
-- Protected updates
-- Audit logging
-
----
-
-# 📱 Responsive Design
-
-Designed for:
-
-- Desktop
-- Tablet
-- Mobile Devices
-
----
-
-# 🎨 Theme
-
-Primary Colors
-
-- Royal Green (#0F4C3A)
-- White
-- Gold (#D4AF37)
-- Black
-
----
-
-# 📈 Future Improvements
-
-The following features are planned for future releases:
-
-- Real Backend API
-- PostgreSQL Database
-- Supabase Integration
-- Email Verification
-- Password Reset
-- Push Notifications
-- Image Uploads
-- Geolocation Support
-- Google Maps Integration
-- Real-time Chat
-- AI-powered Report Categorization
-- Analytics Dashboard
-- Offline Support (PWA)
-- Multi-language Support
-- SMS Notifications
-- Government Portal Integration
-
 ---
 
 # 📸 Screenshots
 
-Add screenshots after running the application.
+| HOME |
+|------------------|
+<p align="center">
+  <img src="docs/images/home.png" alt="Home" width="100%">
+</p>
 
-Example:
+| DASHBOARD |
+|------------------|
+<p align="center">
+  <img src="docs/images/db.png" alt="Dashboard" width="100%">
+</p>
 
-```
-screenshots/
-
-├── login.png
-├── dashboard.png
-├── reports.png
-├── developer-console.png
-├── admin-dashboard.png
-├── notifications.png
-```
-
-Example Markdown
-
-```md
-## Login
-
-![Login](screenshots/login.png)
-
-## Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-## Reports
-
-![Reports](screenshots/reports.png)
-
-## Developer Console
-
-![Developer Console](screenshots/developer-console.png)
-```
+| ADMIN DASHBOARD & ANALYTICS |
+|-----------------------------|
+| <p align="center">
+  <img src="docs/images/admindb.png" alt="Admin Dashboard & Analytics" width="100%">
+</p>
 
 ---
 
-# 🧪 Testing
+# 📊 Current Status
 
-Current Quality Status
+## Completed
 
-✅ ESLint Passed
+- Authentication UI
+- Resident Dashboard
+- Admin Dashboard
+- Super Admin Dashboard
+- Notifications
+- Comment System
+- Analytics Dashboard
+- Developer Console
+- Prisma Database Configuration
+- Express Backend Structure
+- PostgreSQL Configuration
 
-✅ TypeScript Passed
+---
 
-✅ Production Build Passed
+## In Progress
+
+- Backend API Integration
+- Production Authentication
+- File Uploads
+- Email Notifications
+- Real-time Updates
+
+---
+
+# 🌍 Future Improvements
+
+- Mobile Application
+- Push Notifications
+- AI Issue Categorization
+- GIS Mapping
+- Offline Reporting
+- SMS Integration
+- Government Portal
+- Multi-language Support
 
 ---
 
@@ -423,10 +318,10 @@ Contributions are welcome.
 2. Create a feature branch
 
 ```bash
-git checkout -b feature-name
+git checkout -b feature/my-feature
 ```
 
-3. Commit changes
+3. Commit your changes
 
 ```bash
 git commit -m "Added new feature"
@@ -435,10 +330,10 @@ git commit -m "Added new feature"
 4. Push
 
 ```bash
-git push origin feature-name
+git push origin feature/my-feature
 ```
 
-5. Open a Pull Request
+5. Open a Pull Request.
 
 ---
 
@@ -450,30 +345,16 @@ This project is licensed under the MIT License.
 
 # 👨‍💻 Author
 
-**Okutu, Ikechukwuka Anthony**
+**Okutu Anthony**
 
-IT Consultant • Virtual Assistant • Full Stack Developer
+IT Support • Virtual Assistant • Full Stack Developer
 
-Built as part of the **3 Million Technical Talent (3MTT) Programme**.
-
----
-
-# 🙏 Acknowledgements
-
-Special thanks to:
-
-- 3MTT Nigeria
-- Federal Ministry of Communications, Innovation & Digital Economy
-- React Team
-- Vite Team
-- Tailwind CSS
-- Framer Motion
-- Lucide Icons
+Built as part of the **3MTT Nigeria Software Development Programme**.
 
 ---
 
-## ⭐ Support
+<p align="center">
 
-If you found this project helpful, please consider giving it a ⭐ on GitHub.
+Made with ❤️ for stronger Nigerian communities 🇳🇬
 
----
+</p>

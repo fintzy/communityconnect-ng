@@ -14,8 +14,14 @@ node_modules/
 # Build output
 dist/
 
+# TypeScript build cache
+*.tsbuildinfo
+
 # Logs
 *.log
+
+# IDE
+.vscode/settings.json
 
 # OS files
 .DS_Store
