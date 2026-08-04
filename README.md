@@ -31,7 +31,7 @@ Residents can easily report issues affecting their communities, while administra
 
 ---
 
-# ✨ Features
+# ✨ FEATURES
 
 ## 👥 Citizen Portal
 
@@ -68,7 +68,7 @@ Residents can easily report issues affecting their communities, while administra
 
 ---
 
-# 🏗 Technology Stack
+# 🏗 TECHNOLOGY STACK
 
 ## Frontend
 
@@ -111,7 +111,7 @@ Residents can easily report issues affecting their communities, while administra
 
 ---
 
-# 📂 Project Structure
+# 📂 PROJECT STRUCTURE
 
 ```text
 communityconnect-ng
@@ -160,7 +160,7 @@ communityconnect-ng
 
 ---
 
-# To Get Started
+# TO GET STARTED
 
 ## Clone Repository
 
@@ -191,7 +191,7 @@ npm install
 
 ---
 
-# ⚙ Environment Variables
+# ⚙ ENVIRONMENT VARIABLES
 
 ### Frontend (.env)
 
@@ -259,7 +259,7 @@ http://localhost:3000
 
 ---
 
-# 📸 Screenshots
+# 📸 SCREENSHOTS
 
 ## Home Page
 
@@ -285,7 +285,7 @@ http://localhost:3000
 
 ---
 
-# 📊 Project Status
+# 📊 PROJECT STATUS
 
 ## ✅ Completed
 
@@ -314,7 +314,7 @@ http://localhost:3000
 
 ---
 
-# 🌍 Roadmap
+# 🌍 ROADMAP
 
 - Mobile Application
 - Push Notifications
@@ -324,6 +324,16 @@ http://localhost:3000
 - SMS Integration
 - Government Portal
 - Multi-language Support
+
+---
+
+# 🌐 LIVE DEMO
+
+FRONTEND:
+https://communityconnect-ng.vercel.app/
+
+REPOSITORY:
+https://github.com/fintzy/communityconnect-ng
 
 ---
 
