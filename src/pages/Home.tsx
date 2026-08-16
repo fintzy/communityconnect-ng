@@ -2,7 +2,8 @@ import { motion, type Variants } from "framer-motion";
 
 import { Link } from "react-router-dom";
 import {
-  MapPin,  FileText,  TrendingUp,  Shield,  Star,  Users,  ArrowRight,  Sparkles,  Leaf,  CircleCheck,} from "lucide-react";
+  MapPin,  FileText,  TrendingUp,  Shield,  Star,  Users,  ArrowRight,  Sparkles,  Leaf,  CircleCheck,
+  ArrowLeft,} from "lucide-react";
 import { store } from "../services/store";
 
 const fadeInUp: Variants = {
@@ -177,7 +178,7 @@ export default function Home() {
             >
               <Link
                 to="/dashboard"
-                className="px-8 py-3.5 bg-[#D4AF37] text-[#0F4C3A] font-semibold rounded-xl hover:bg-[#C5A032] transition-all shadow-lg shadow-[#D4AF37]/20 flex items-center gap-2 group"
+                className="px-10 py-3.5 bg-[#D4AF37] text-[#0F4C3A] font-semibold rounded-xl hover:bg-[#C5A032] transition-all shadow-lg shadow-[#D4AF37]/20 flex items-center gap-2 group"
               >
                 Explore Dashboard
 
@@ -350,16 +351,14 @@ export default function Home() {
 
               <Link
                 to="/auth"
-                className="px-8 py-3.5 bg-[#D4AF37] text-[#0F4C3A] font-semibold rounded-xl hover:bg-[#C5A032] transition-all shadow-lg shadow-[#D4AF37]/20"
+                className="px-10 py-3.5 bg-[#D4AF37] text-[#0F4C3A] font-semibold rounded-xl hover:bg-[#C5A032] transition-all shadow-lg shadow-[#D4AF37]/20 flex items-center gap-2 group"
               >
-                Get Started Free
-              </Link>
+              <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
 
-              <Link
-                to="/devconsole"
-                className="px-8 py-3.5 border border-white/20 text-white/70 font-medium rounded-xl hover:bg-white/5 hover:text-white transition-all"
-              >
-                View Dev Console
+                Get Started           
+
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+
               </Link>
 
             </div>
