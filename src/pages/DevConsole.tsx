@@ -20,7 +20,7 @@ import {
    type LucideIcon,
 } from "lucide-react";
 
-import DashboardCards from "../components/superadmin/pages/DashboardCards";
+//import DashboardCards from "../components/superadmin/pages/DashboardCards";
 // import SystemHealth from "../components/superadmin/SystemHealth";
 // import DatabaseOverview from "../components/superadmin/DatabaseOverview";
 // import AuditOverview from "../components/superadmin/AuditOverview";
@@ -165,8 +165,17 @@ export default function DevConsole() {
   const jwtToken = store.getToken();
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-      {/* Header */}
+  <motion.div initial={{opacity: 0, y: 12,}}
+    animate={{
+      opacity: 1,
+      y: 0,
+    }}
+    transition={{
+      duration: 0.35,
+      ease: "easeOut",
+    }}
+    className="..."
+  >      {/* Header */}
       <div className="mb-8">
         <div className="flex items-center gap-3 mb-2">
           <div className="w-10 h-10 rounded-xl bg-[#0F4C3A] flex items-center justify-center">
@@ -329,7 +338,7 @@ export default function DevConsole() {
             <div className="p-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {[
-                  { label: "Users", value: ((store as any).getUsers?.() as any[] | undefined)?.length ?? 0, icon: Users, color: "text-[#0F4C3A]" },
+                  { label: "Users", value: ((store as { getUsers?: () => unknown[] }).getUsers?.() ?? []).length, icon: Users, color: "text-[#0F4C3A]" },
                   { label: "Reports", value: store.getReports().length, icon: FileText, color: "text-[#D4AF37]" },
                   { label: "Comments", value: store.getStats().totalComments, icon: MessageCircle, color: "text-blue-600" },
                   { label: "Announcements", value: store.getStats().totalAnnouncements, icon: Megaphone, color: "text-purple-600" },
@@ -561,6 +570,6 @@ export default function DevConsole() {
           </div>
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 }

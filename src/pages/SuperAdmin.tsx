@@ -12,11 +12,9 @@ export default function SuperAdmin() {
 
         <Header />
 
-        <div className="p-8">
-
+        <div className="p-4 sm:p-6 lg:p-8">
           <div className="max-w-7xl mx-auto">
-
-            <div className="bg-white rounded-2xl shadow-sm border p-8">
+            <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-4 sm:p-6 lg:p-8">
 
               <SuperAdminDashboard />
 
@@ -27,7 +25,7 @@ export default function SuperAdmin() {
         </div>
 
       </main>
-
+      
     </div>
   );
 }

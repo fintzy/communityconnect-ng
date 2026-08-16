@@ -1,64 +1,249 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+} from "react-router-dom";
 
 import Layout from "./components/Layout";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 import Home from "./pages/Home";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import DevConsole from "./pages/DevConsole";
-import SuperAdmin from "./pages/SuperAdmin";
+import ReportIncident from "./pages/ReportIncident";
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
+import SuperAdminLayout from "./components/superadmin/SuperAdminLayout";
+import SuperAdminDashboard from "./components/superadmin/SuperAdminDashboard";
 
-        {/* Main Website */}
-        <Route
-          path="/"
-          element={
-            <Layout>
-              <Home />
-            </Layout>
-          }
-        />
+import UserManagement from "./components/superadmin/pages/UserManagement";
+import ReportsManagement from "./components/superadmin/pages/ReportsManagement";
+import Comments from "./components/superadmin/pages/Comments";
+import Notifications from "./components/superadmin/pages/Notifications";
+import SettingsPanel from "./components/superadmin/pages/SettingsPanel";
 
-        <Route
-          path="/auth"
-          element={
-            <Layout>
-              <Auth />
-            </Layout>
-          }
-        />
+import AuditOverview from "./components/superadmin/pages/AuditOverview";
+import CategoryChart from "./components/superadmin/pages/CategoryChart";
 
-        <Route
-          path="/dashboard"
-          element={
-            <Layout>
-              <Dashboard />
-            </Layout>
-          }
-        />
+import PageTransition from "./components/PageTransition";
 
-        <Route
-          path="/devconsole"
-          element={
-            <Layout>
-              <DevConsole />
-            </Layout>
-          }
-        />
+import { store } from "./services/store";
+import { ThemeProvider } from "./components/context/ThemeProvider";
 
-        {/* Super Admin (NO Layout) */}
-        <Route
-          path="/super-admin"
-          element={<SuperAdmin />}
-        />
+// ============================================================
+// SUPER ADMIN PROTECTION
+// ============================================================
 
-      </Routes>
-    </BrowserRouter>
-  );
+function SuperAdminRoute({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  const user = store.getCurrentUser();
+
+  if (!user) {
+    return <Navigate to="/auth" replace />;
+  }
+
+  if (user.role !== "super-admin") {
+    return <Navigate to="/dashboard" replace />;
+  }
+
+  return <>{children}</>;
 }
 
-export default App;
+// ============================================================
+// ANIMATED ROUTES
+// ============================================================
+
+    function AnimatedRoutes() {
+      const location = useLocation();
+
+      return (
+        <Routes location={location}>
+          {/* ==================================================
+              PUBLIC HOME
+          ================================================== */}
+
+          <Route
+            path="/"
+            element={
+              <Layout>
+                <PageTransition>
+                  <Home />
+                </PageTransition>
+              </Layout>
+            }
+          />
+
+          {/* ==================================================
+              AUTHENTICATION
+          ================================================== */}
+
+          <Route
+            path="/auth"
+            element={
+              <Layout>
+                <PageTransition>
+                  <Auth />
+                </PageTransition>
+              </Layout>
+            }
+          />
+
+          {/* ==================================================
+              DASHBOARD
+          ================================================== */}
+
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Layout>
+                    <Dashboard />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ==================================================
+              DEVELOPER CONSOLE
+          ================================================== */}
+
+          <Route
+            path="/devconsole"
+            element={
+              <ProtectedRoute
+                roles={[
+                  "super-admin",
+                ]}
+              >
+                <Layout>
+                    <DevConsole />
+                </Layout>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ==================================================
+              REPORT INCIDENT
+          ================================================== */}
+
+          <Route
+            path="/report-incident"
+            element={
+              <ProtectedRoute>
+                <PageTransition>
+                  <Layout>
+                    <ReportIncident />
+                </Layout>
+                </PageTransition>
+              </ProtectedRoute>
+            }
+          />
+
+          {/* ==================================================
+              SUPER ADMIN
+          ================================================== */}
+
+          <Route
+            path="/super-admin"
+            element={
+              <SuperAdminRoute>
+                <SuperAdminLayout />
+              </SuperAdminRoute>
+            }
+          >
+            <Route
+              index
+              element={<SuperAdminDashboard />}
+            />
+
+            <Route
+              path="users"
+              element={<UserManagement />}
+            />
+
+            <Route
+              path="reports"
+              element={<ReportsManagement />}
+            />
+
+            <Route
+              path="comments"
+              element={<Comments />}
+            />
+
+            <Route
+              path="notifications"
+              element={<Notifications />}
+            />
+
+            <Route
+              path="settings"
+              element={<SettingsPanel />}
+            />
+
+            <Route
+              path="audit-logs"
+              element={<AuditOverview />}
+            />
+
+            <Route
+              path="analytics"
+              element={<CategoryChart />}
+            />
+
+            <Route
+              path="announcements"
+              element={
+                <Navigate
+                  to="/super-admin/notifications"
+                  replace
+                />
+              }
+            />
+
+            <Route
+              path="*"
+              element={
+                <Navigate
+                  to="/super-admin"
+                  replace
+                />
+              }
+            />
+          </Route>
+
+          {/* ==================================================
+              GLOBAL FALLBACK
+          ================================================== */}
+
+          <Route
+            path="*"
+            element={
+              <Navigate
+                to="/"
+                replace
+              />
+            }
+          />
+        </Routes>
+      );
+    }
+// ============================================================
+// APP
+// ============================================================
+
+    function App() {
+      return (
+        <ThemeProvider>
+          <BrowserRouter>
+            <AnimatedRoutes />
+          </BrowserRouter>
+        </ThemeProvider>
+      );
+    }
+  export default App;
